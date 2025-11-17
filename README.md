@@ -3,23 +3,53 @@ disusun untuk memenuhi tugas KKTKJ
 
 ---
 
-# 🌐 Panduan Instalasi Apache2, HTTPS, dan Deploy Project Web di Debian
+# ██🔥💀🔥💀🔥 ACAB APACHE SERVER GUIDE 🔥💀🔥💀🔥██
 
-Dokumen ini berisi langkah-langkah lengkap untuk membangun Web Server Apache2 di Debian, memasang PHP, mengaktifkan HTTPS, hingga upload project web dari VSCode ke server.
+### *WEB-SERVER-GANDARIA-GROUP-APACHE*
 
----
+### *Dokumen ini dibuat bukan untuk patuh—tapi untuk MEMBANGKANG.*
 
-## 🧩 1. Menyiapkan Debian Server
+### **ACAB = All Cops Are Blockers (penghalang server)**
 
-Pastikan sebelum mulai:
-
-* 🖥️ Debian memiliki IP Address yang dapat diakses LAN
-* 📦 Repository sudah disetting
-* 🔑 SSH berfungsi (akses lewat CMD / Terminal / WinSCP)
+> “Jika sistem memata-matai kita, kita bangun server sendiri.”
+> — Anarko Sysadmin, 2003
 
 ---
 
-## 🏗️ 2. Instalasi Apache Web Server
+# 🏴‍☠️🌐 PANDUAN INSTALASI APACHE2 (ANTI-OTORITAS EDITION)
+
+**Debian?**
+Kita siksa.
+**Apache?**
+Kita paksa bekerja.
+**HTTPS?**
+Kita bikin versi bajakan.
+**ACAB.**
+
+---
+
+# 🚫👮 0. DISCLAIMER (VERSI PUNK)
+
+**Dokumen ini tidak tunduk pada standar mana pun.**
+Tidak ISO. Tidak SOP.
+Tidak ada polisi IT yang mengatur.
+**ACAB, termasuk "sysadmin polisi" yang suka nge-ceklist.**
+
+---
+
+## 🧩🔥 1. PERSIAPAN — *SIAPKAN SENJATA DIGITAL*
+
+Sebelum ngebut:
+
+* 🖥️ Debian punya IP LAN → **buat kita obrak-abrik**
+* 📦 Repo hidup → **biar download paket jadi cepat kayak kerusuhan**
+* 🔑 SSH aktif → **akses ilegal tapi legal karena punya server sendiri**
+
+---
+
+## 🤘🔥 2. INSTAL APACHE — *BANGUNKAN DEMON DI DALAM SERVER*
+
+**Kita mulai bakar.**
 
 ### 🔄 Update Sistem
 
@@ -27,13 +57,13 @@ Pastikan sebelum mulai:
 apt update && apt upgrade -y
 ```
 
-### 🌐 Instal Apache2
+### 🔥 Install Apache2
 
 ```bash
 apt install apache2 -y
 ```
 
-### ▶️ Aktifkan dan Cek Status
+### 🚬 Aktifkan & Lihat Napasnya
 
 ```bash
 systemctl enable apache2
@@ -41,37 +71,25 @@ systemctl start apache2
 systemctl status apache2
 ```
 
-### 🌍 Uji melalui browser
-
-Akses:
-
-```
-http://ip-server
-```
-
-Jika tampilan default Apache muncul → instalasi sukses.
+Kalau tampil halaman default:
+→ **SERVER MUDAH SEKALI TAKLUK.**
 
 ---
 
-## 🐘 3. Instalasi PHP
+## 💀🐘 3. INSTALL PHP — *BIAR SERVER PUNYA OTAK*
 
-### Instal PHP Dasar
+Tanpa PHP, server cuma zombie jalan.
 
 ```bash
 apt install php -y
-```
-
-### Instal Modul Tambahan
-
-```bash
 apt install php-common php-xml php-curl php-zip php-gd php-mbstring php-intl php-json php-soap php-mysql -y
 ```
 
 ---
 
-## 🔧 4. Memastikan PHP Berjalan
+## ⚰️ 4. TEST PHP — *BIAR GAK DIBOHONGI SISTEM*
 
-### Buat file info PHP:
+Bikin file:
 
 ```bash
 nano /var/www/html/info.php
@@ -89,26 +107,29 @@ Akses:
 http://ip-server/info.php
 ```
 
-Jika halaman info PHP muncul → PHP berhasil.
+Jika muncul → **SUCCESS, F**K OTORITAS**.**
 
 ---
 
-## 🔐 5. Menambahkan SSL (Self-Signed Certificate)
+## 🔐💣 5. SSL (SELF-SIGNED) — *KITA GAK PERCAYA OTORITAS SERTIFIKAT*
 
-### Instal dan aktifkan SSL
+**Kita bikin sertifikat sendiri.**
+Karena **CA = Cops Authority**, dan **ACAB**.
+
+### Instal SSL
 
 ```bash
 apt install openssl -y
 a2enmod ssl
 ```
 
-### Buat direktori SSL
+### Direktori ilegal
 
 ```bash
 mkdir /etc/apache2/ssl
 ```
 
-### Generate sertifikat
+### Generate Sertifikat Bajakan
 
 ```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -116,34 +137,27 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 -out /etc/apache2/ssl/selfsigned.crt
 ```
 
-Contoh Identitas yang diisi:
-
-* Country Name: ID
-* State: Jawa Barat
-* Locality: Bandung
-* Organization: Sekolah XYZ
-* Organizational Unit: IT Department
-* Common Name: serverku.local
-* Email: [admin@domain.com](mailto:admin@domain.com)
+Isi identitas:
+→ **bebas, semua CA bisa ke neraka.**
 
 ---
 
-## ⚙️ 6. Konfigurasi Virtual Host HTTPS
+## ⚙️🕳️ 6. VIRTUAL HOST — *KITA BUAT WILAYAH SERVER SENDIRI*
 
-### Salin konfigurasi default
+Copy:
 
 ```bash
 cp /etc/apache2/sites-available/000-default.conf \
 /etc/apache2/sites-available/000-default-ssl.conf
 ```
 
-### Edit konfigurasi SSL
+Edit:
 
 ```bash
 nano /etc/apache2/sites-available/000-default-ssl.conf
 ```
 
-Isi dengan:
+Isi:
 
 ```apache
 <VirtualHost *:443>
@@ -166,9 +180,11 @@ Isi dengan:
 </VirtualHost>
 ```
 
+> **Setiap baris config adalah aksi perlawanan.**
+
 ---
 
-## 🔁 7. Mengaktifkan HTTPS & Modul Rewrite
+## 🔥🔁 7. NYALAKAN HTTPS — *TENDANG SERVICENYA SAMPAI BANGUN*
 
 ```bash
 a2ensite 000-default-ssl.conf
@@ -176,25 +192,27 @@ a2enmod rewrite
 systemctl reload apache2
 ```
 
-Coba akses:
+Akses:
 
 ```
 https://ip-server
 ```
 
-(Gembok kuning/merah normal karena sertifikat self-signed)
+Gembok merah?
+→ **BIAR.**
+Itu simbol **PERLAWANAN**.
 
 ---
 
-## 🔀 8. Redirect HTTP ke HTTPS (Opsional)
+## 🚧⚡ 8. REDIRECT HTTP → HTTPS
 
-Edit file:
+Edit:
 
 ```bash
 nano /etc/apache2/sites-available/000-default.conf
 ```
 
-Tambahkan:
+Tambah:
 
 ```apache
 Redirect "/" "https://server.local/"
@@ -208,26 +226,28 @@ systemctl reload apache2
 
 ---
 
-## 🗂️ 9. Deploy Project Web dari VSCode ke Server
+## 🗂️🔥 9. DEPLOY VIA VSCODE — *DROP PAYLOAD KE TARGET*
 
-1. 📝 Buka folder project web di VSCode
-2. 📁 Copy seluruh file (HTML, CSS, JS, PHP, assets)
-3. 🔑 Buka WinSCP → login ke server
-4. 📂 Masuk ke folder Apache:
+Langkah-langkah sabotase:
+
+1. Buka project di VSCode
+2. Copy semua file
+3. Login WinSCP
+4. Masuk:
 
    ```
    /var/www/html
    ```
-5. 📥 Paste seluruh file project
-6. 🗑️ Hapus / ganti file bawaan Apache (mis: index.html)
-7. 🌐 Akses website:
+5. Paste
+6. Hapus index.html culun bawaan Apache
+7. Akses:
 
 ```
 http://ip-server
 https://ip-server
 ```
 
-Jika muncul masalah permission, jalankan:
+Permission ngamuk?
 
 ```bash
 chmod -R 755 /var/www/html
@@ -236,15 +256,25 @@ chown -R www-data:www-data /var/www/html
 
 ---
 
-## 🎉 Selesai!
+# 🎉🔥💀 SERVER AKHIRNYA JADI MESIN ANARKI
 
-Kini server Debian kamu mendukung:
+Server Debian kamu sekarang:
 
-* 🌐 Apache2
-* 🐘 PHP + Modul Lengkap
-* 🔐 HTTPS (SSL)
-* 📄 Virtual Host
-* 🔁 Redirect HTTP → HTTPS
-* 📂 Deploy project dari VSCode
+* 🏴 Apache2 jalan
+* 🏴 PHP liar
+* 🏴 HTTPS bajakan
+* 🏴 Virtual host custom
+* 🏴 Redirect paksa
+* 🏴 Deploy barbar via VSCode
+
+Dan yang paling penting:
+
+### **🏴 ACAB — ALL CERTIFICATE AUTHORITIES BURN 🔥**
+
+### **🏴 ACAB — ALL CONFIG APPROVAL BUREAUS DIE 💥**
+
+### **🏴 ACAB — ALL CONTROL ARE BULLSH*T ⚡**
 
 ---
+
+### “NAIKKAN LEVEL ANARKI.”
