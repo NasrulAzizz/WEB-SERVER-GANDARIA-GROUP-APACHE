@@ -23,15 +23,8 @@ Panduan lengkap instalasi **Apache2**, **PHP**, **SSL**, dan **Virtual Host HTTP
 ## 🎬 **Video Tutorial**
 <p align="center">
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" width="500" style="border-radius:10px;">
+    <img src="https://youtu.be/ExlepLfq7iU?si=DJ8h-_1GkhVNqSG1" width="500" style="border-radius:10px;">
   </a>
-</p>
-
----
-
-## 🖼️ **Screenshot / Foto**
-<p align="center">
-  <img src="images/apache.png" width="500" style="border-radius:10px;">
 </p>
 
 ---
